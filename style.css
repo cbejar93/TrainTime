@@ -1,0 +1,14 @@
+.jumbotron {
+    background-color:#1b4861;
+    color: white; 
+    
+}
+
+h1{
+    font-size: 75px;
+}
+
+.card-header{
+    background-color: #327687;
+    color: white;
+}

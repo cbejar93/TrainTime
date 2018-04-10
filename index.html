@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sunrail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"><img src="images/SunRail.png" width="150px" height="150px"></div>
+                <h1 class = "col-md-10 pt-3">Orlando Train Tracker</h1>
+            </div>    
+            <p class="lead">This is where we all pretend Orlando has a decent rail network</p>
+        </div>
+    </div>
+    <div class="container">
+            <div class="card">
+                    <div class="card-header">
+                      <h2>Train Scheduler</h2>
+                    </div>
+                    <div class="card-body">
+                            <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Train Name</th>
+                                        <th scope="col">Destination</th>
+                                        <th scope="col">First Service</th>
+                                        <th scope="col">Headways</th>
+                                        <th scope="col">Next Arrival</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="timetable">
+                                    </tbody>
+                            </table>
+                    </div>
+            </div>
+            <div class="card mt-5 mb-3">
+                <div class="card-header">
+                    <h2>Train Creator</h2>
+                </div>
+                <div class="card-body">
+                        <label for="t-name">Train Name</label>
+                        <div class="input-group mb-3">                       
+                            <input type="text" class="form-control" id="train-name" aria-describedby="basic-addon3">
+                        </div>
+                </div>
+                <div class="card-body">
+                        <label for="t-name">Destination</label>
+                        <div class="input-group mb-3">                       
+                            <input type="text" class="form-control" id="destination" aria-describedby="basic-addon3">
+                        </div>
+                </div>
+                <div class="card-body">
+                        <label for="t-name">First Service (military time)</label>
+                        <div class="input-group mb-3">                       
+                            <input type="text" class="form-control" id="1service" aria-describedby="basic-addon3">
+                        </div>
+                </div>
+                <div class="card-body">
+                        <label for="t-name">Frequency (mins)</label>
+                        <div class="input-group mb-3">                       
+                            <input type="text" class="form-control" id="freq" aria-describedby="basic-addon3">
+                        </div>
+                </div>
+                <button type="button" class="btn btn-info" id="submit">Submit</button>
+            </div>
+
+    </div>
+    
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>    
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
