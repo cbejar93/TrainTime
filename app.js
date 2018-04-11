@@ -36,24 +36,45 @@ var config = {
         let tfirst = $("<td>");
         let thead = $("<td>");
         let tarrive = $("<td>");
+        let tminsarv = $("<td>");
 
+        
+        let tfrequency = parseInt(childSnapshot.val().freq);
+        let tstart = childSnapshot.val().firstserv;
+
+        var firstTimeConverted = moment(tstart, "HH:mm").subtract(1, "years");
+        console.log(firstTimeConverted);
+    
+        // Current Time
+        var currentTime = moment();
+        console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+    
+        // Difference between the times
+        var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+        console.log("DIFFERENCE IN TIME: " + diffTime);
+    
+        // Time apart (remainder)
+        var tRemainder = diffTime % tfrequency;
+        console.log(tRemainder);
+    
+        // Minute Until Train
+        var tMinutesTillTrain = tfrequency - tRemainder;
+        console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+    
+        // Next Train
+        var nexttrain = moment().add(tMinutesTillTrain, "minutes");
+        console.log("ARRIVAL TIME: " + moment(nexttrain).format("hh:mm"));
+        
+        
+        
         $(tname).text(childSnapshot.val().name);
         $(tdest).text(childSnapshot.val().dest);
         $(tfirst).text(childSnapshot.val().firstserv);
         $(thead).text(childSnapshot.val().freq);
+        $(tarrive).text(nexttrain);
+        $(tminsarv).text(tMinutesTillTrain);
 
-        newR.append(tname, tdest, tfirst, thead, tarrive);
+        newR.append(tname, tdest, tfirst, thead, tarrive, tminsarv);
         $("#timetable").append(newR);
 
-
-
-        let tfrequency = parseInt(childSnapshot.val().freq);
-        let tstart = childSnapshot.val().firstserv;
-        let tstartmin = moment(tstart, "hh/mm");
-        let diff = moment().diff(tstartmin, "minutes");
-        let nexttrain = diff%tfrequency;
-
-        $(tarrive).text(nexttrain);
-        
-        console.log(nexttrain);
     })
