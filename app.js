@@ -47,5 +47,13 @@ var config = {
 
 
 
+        let tfrequency = parseInt(childSnapshot.val().freq);
+        let tstart = childSnapshot.val().firstserv;
+        let tstartmin = moment(tstart, "hh/mm");
+        let diff = moment().diff(tstartmin, "minutes");
+        let nexttrain = diff%tfrequency;
 
+        $(tarrive).text(nexttrain);
+        
+        console.log(nexttrain);
     })
